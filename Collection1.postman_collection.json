@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "75a2377a-a675-4a83-9e6e-fd17b57ba68e",
+		"name": "Collection1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12857136"
+	},
+	"item": [
+		{
+			"name": "登录 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",  ()=>{",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test(\"console.log token and cookie\",  ()=> {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.token)",
+							"    console.log(jsonData.cookie)",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/login/cellphone?phone=15000840699&password=hf15000840699",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login",
+						"cellphone"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "15000840699"
+						},
+						{
+							"key": "password",
+							"value": "hf15000840699"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取用户播放记录 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test(\"Response data length is greater than 0\",  ()=> {",
+							"    var jsonData =  pm.response.json()",
+							"    pm.expect(jsonData.allData.length).to.be.above(0)",
+							"})",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user/record?uid={{uid}}&type=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"record"
+					],
+					"query": [
+						{
+							"key": "uid",
+							"value": "{{uid}}"
+						},
+						{
+							"key": "type",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "检测手机号码是否已注册 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",  ()=> {",
+							"  pm.response.to.have.status(200);",
+							"})",
+							"pm.test(\"exist  is 1\",  ()=> {",
+							"  var jsonData = pm.response.json()",
+							"  pm.expect(jsonData.exist).to.eql(1)",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cellphone/existence/check?phone=15000840699",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cellphone",
+						"existence",
+						"check"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "15000840699"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
