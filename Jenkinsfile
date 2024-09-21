@@ -15,8 +15,8 @@ pipeline {
                     sh 'npx newman-reporter-htmlextra --version'
                     sh 'pwd'
                     sh 'ls'
-                    // sh 'rm -rf newman/*'
-                    // sh 'npx newman run collection0920.json -e dev_environment.json -r htmlextra' 
+                    sh 'rm -rf newman/*'
+                    sh 'npx newman run collection0920.json -e dev_environment.json -r htmlextra' 
                 }
             }
         }  
