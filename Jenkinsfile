@@ -104,8 +104,15 @@ pipeline {
                 mimeType: 'text/html'
         }
         always {
-            // Archive the HTML report
-            archiveArtifacts artifacts: 'newman/*.html', allowEmptyArchive: false
+            // Publish the HTML report using HTML Publisher
+            publishHTML(target: [
+                reportName: 'Newman Test Report', 
+                reportDir: 'newman',       // Directory containing the report
+                reportFiles: 'Collection0920-*.html', // HTML file pattern
+                keepAll: true,             // Keep past reports
+                allowMissing: false,       // Fail the build if report is missing
+                alwaysLinkToLastBuild: true
+            ])
         }
     }
 }
