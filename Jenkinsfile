@@ -11,8 +11,10 @@ pipeline {
                     sh 'npm config set registry https://registry.npmmirror.com/'
                     sh 'npm i newman '
                     sh 'npm i newman-reporter-htmlextra'
-                    sh 'newman -v'
-                    sh 'newman-reporter-htmlextra -v'
+                    sh 'newman --version'
+                    sh 'newman-reporter-htmlextra --version'
+                    sh 'pwd'
+                    sh 'ls'
                 }
             }
         }  
