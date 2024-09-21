@@ -103,5 +103,9 @@ pipeline {
                       """,
                 mimeType: 'text/html'
         }
+        always {
+            // Archive the HTML report
+            archiveArtifacts artifacts: 'newman/*.html', allowEmptyArchive: false
+        }
     }
 }
