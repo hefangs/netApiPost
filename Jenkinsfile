@@ -26,8 +26,8 @@ pipeline {
     post {
         success{
             mail to: 'he529564582@163.com',
-                 subject: "构建成功: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: """
+                subject: "构建成功: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
                         <!DOCTYPE html>
                         <html>
                             <head>
@@ -53,7 +53,8 @@ pipeline {
                                                 <li>构建编号: 第 ${BUILD_NUMBER} 次构建</li>            
                                                 <li>构建URL: <a href="${BUILD_URL}">${BUILD_URL}</a></li>
                                                 <li>构建日志:<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
-                                                <li>最近提交: <a href="${BUILD_URL}changes">${BUILD_URL}changes</a</li>  
+                                                <li>最近提交: <a href="${BUILD_URL}changes">${BUILD_URL}changes</a</li> 
+                                                <li>测试报告: <a href="${env.BUILD_URL}Newman_20Report">${env.BUILD_URL}Newman_20Report</a></li>  
                                             </ul>    
                                         </td>    
                                     </tr>    
@@ -61,13 +62,13 @@ pipeline {
                             </body>
                         </html>
                         """,
-                 mimeType: 'text/html'
+                mimeType: 'text/html'
         }
         
         failure {
             mail to: 'he529564582@163.com',
                 subject: "构建失败: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """
+                body:"""
                         <!DOCTYPE html>
                         <html>
                             <head>
@@ -100,7 +101,7 @@ pipeline {
                                 </table>  
                             </body>
                         </html>
-                      """,
+                    """,
                 mimeType: 'text/html'
         }
         // always {
