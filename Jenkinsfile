@@ -110,7 +110,7 @@ pipeline {
         always {
             // Publish the HTML report using HTML Publisher
             publishHTML(target: [
-                reportName: 'Newman Test Report', 
+                reportName: 'Newman Report', 
                 reportDir: 'newman',       // Directory containing the report
                 reportFiles: 'Collection0920-*.html', // HTML file pattern
                 keepAll: true,             // Keep past reports
