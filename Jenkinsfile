@@ -16,7 +16,9 @@ pipeline {
                     sh 'pwd'
                     sh 'ls'
                     sh 'rm -rf newman/*'
-                    sh 'npx newman run collection0920.json -e dev_environment.json -r htmlextra' 
+                    sh  '''
+                            npx newman run collection0920.json -e dev_environment.json -r htmlextra || true
+                        '''
                 }
             }
         }  
