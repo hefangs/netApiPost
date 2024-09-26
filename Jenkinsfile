@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker { image 'node' }
             } 
-            steps(Install newman newman-reporter-htmlextra) {
+            steps('Install newman newman-reporter-htmlextra') {
                 sh 'node -v'
                 sh 'npm -v'
                 sh 'pwd'
