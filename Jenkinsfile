@@ -55,7 +55,7 @@ pipeline {
                                                 <li>构建URL: <a href="${BUILD_URL}">${BUILD_URL}</a></li>
                                                 <li>构建日志:<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
                                                 <li>最近提交: <a href="${BUILD_URL}changes">${BUILD_URL}changes</a</li> 
-                                                <li>测试报告: <a href="${env.BUILD_URL}Newman_20Report">${env.BUILD_URL}Newman_20Report</a></li>  
+                                                <li>测试报告: <a href="${env.BUILD_URL}Newman_20Report">${env.BUILD_URL}Newman_Report</a></li>  
                                             </ul>    
                                         </td>    
                                     </tr>    
