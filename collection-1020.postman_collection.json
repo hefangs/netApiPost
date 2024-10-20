@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "75a2377a-a675-4a83-9e6e-fd17b57ba68e",
+		"name": "collection-1020",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12857136"
+	},
+	"item": [
+		{
+			"name": "01",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/countries/code/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"countries",
+						"code",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/search?keywords=海阔天空",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "海阔天空"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
