@@ -86,3 +86,13 @@ http {
     include servers/*;
 }
 ```
+
+
+## 全局属性
+```bash
+uid  用户id
+id   歌单id
+resourceId  资源 id
+eventId 动态 id
+actid   热门话题 id
+
