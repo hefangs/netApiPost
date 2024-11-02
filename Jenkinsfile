@@ -19,7 +19,7 @@ pipeline {
                 sh 'ls'
                 sh 'rm -rf newman/*'
                 sh  '''
-                    npx newman run collection0920.json -e dev_environment.json -r htmlextra || true
+                    npx newman run collection-1020.postman_collection.json -e 1020-dev.postman_environment.json -r htmlextra || true
                     '''
                 sh 'ls  newman'
             }
@@ -115,7 +115,7 @@ pipeline {
             publishHTML(target: [
                 reportName: 'Newman Report', 
                 reportDir: 'newman',       // Directory containing the report
-                reportFiles: 'Collection0920-*.html', // HTML file pattern
+                reportFiles: 'report-*.html', // HTML file pattern
                 keepAll: true,             // Keep past reports
                 allowMissing: false,       // Fail the build if report is missing
                 alwaysLinkToLastBuild: true
