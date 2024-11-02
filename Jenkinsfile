@@ -111,6 +111,9 @@ pipeline {
         //     archiveArtifacts artifacts: 'newman/*.html', allowEmptyArchive: false
         // }
         always {
+            script {
+                sh 'ls -R newman'
+            }
             // Publish the HTML report using HTML Publisher
             publishHTML(target: [
                 reportName: 'Newman Report', 
