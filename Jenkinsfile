@@ -112,10 +112,9 @@ pipeline {
         // }
         always {
             // Publish the HTML report using HTML Publisher
-            def workspaceDir = sh(returnStdout: true, script: 'pwd').trim()
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: workspaceDir + '/newman', 
+                reportDir: newman, 
                 reportFiles: 'collection-1020-*.html', 
                 keepAll: true, 
                 allowMissing: false, 
