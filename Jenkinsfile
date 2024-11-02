@@ -20,7 +20,6 @@ pipeline {
                 sh 'rm -rf newman/*'
                 sh  '''
                     npx newman run collection-1020.postman_collection.json -e 1020-dev.postman_environment.json -r htmlextra --reporter-htmlextra-export "${env.WORKSPACE}/newman/collection-1020-report.html"
-
                     '''
                 sh 'ls  newman'
             }
