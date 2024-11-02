@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        WORKSPACE_PATH = "${env.WORKSPACE}"
+    }
     stages {
         stage('Install Node') {  
             agent {
@@ -114,7 +117,7 @@ pipeline {
             // Publish the HTML report using HTML Publisher
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: "${WORKSPACE}/newman",
+                reportDir: "${WORKSPACE_PATH}/newman",
                 reportFiles: 'collection-1020-*.html', 
                 keepAll: true, 
                 allowMissing: false, 
