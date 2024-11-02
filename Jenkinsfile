@@ -115,7 +115,7 @@ pipeline {
             publishHTML(target: [
                 reportName: 'Newman Report', 
                 reportDir: 'newman',       // Directory containing the report
-                reportFiles: 'report-*.html', // HTML file pattern
+                reportFiles: 'collection-1020-*.html', // HTML file pattern
                 keepAll: true,             // Keep past reports
                 allowMissing: false,       // Fail the build if report is missing
                 alwaysLinkToLastBuild: true
