@@ -111,10 +111,9 @@ pipeline {
         //     archiveArtifacts artifacts: 'newman/*.html', allowEmptyArchive: false
         // }
         always {
-            def reportDir = "${env.WORKSPACE}/newman"
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: reportDir,
+                reportDir: "${env.WORKSPACE}/newman",
                 reportFiles: 'collection-1020-*.html', 
                 keepAll: true, 
                 allowMissing: false, 
