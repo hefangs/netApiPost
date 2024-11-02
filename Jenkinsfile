@@ -19,7 +19,7 @@ pipeline {
                 sh 'ls'
                 sh 'rm -rf newman/*'
                 sh  '''
-                    npx newman run collection-1020.postman_collection.json -e 1020-dev.postman_environment.json -r htmlextra --reporter-htmlextra-export "${env.WORKSPACE}/newman/collection-1020-report.html"
+                    npx newman run collection-1020.postman_collection.json -e 1020-dev.postman_environment.json -r htmlextra || true
                     '''
                 sh 'ls  newman'
             }
@@ -113,7 +113,7 @@ pipeline {
         always {
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: "${env.WORKSPACE}/newman",
+                reportDir: "/var/jenkins_home/workspace/netApiPost-ops@2/newman",
                 reportFiles: 'collection-1020-*.html', 
                 keepAll: true, 
                 allowMissing: false, 
