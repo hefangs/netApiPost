@@ -111,11 +111,11 @@ pipeline {
         //     archiveArtifacts artifacts: 'newman/*.html', allowEmptyArchive: false
         // }
         always {
-            sh "mkdir -p ${WORKSPACE}/newman"  // 确保目录存在
+            def dynamicDir = "${env.WORKSPACE}/newman"  // 手动拼接路径
             // Publish the HTML report using HTML Publisher
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: "${WORKSPACE}/newman",
+                reportDir: dynamicDir,
                 reportFiles: 'collection-1020-*.html', 
                 keepAll: true, 
                 allowMissing: false, 
