@@ -114,7 +114,7 @@ pipeline {
             // Publish the HTML report using HTML Publisher
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: 'newman', 
+                reportDir: '${WORKSPACE}/newman', 
                 reportFiles: 'collection-1020-*.html', 
                 keepAll: true, 
                 allowMissing: false, 
