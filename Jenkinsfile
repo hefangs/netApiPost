@@ -112,12 +112,13 @@ pipeline {
         // }
         always {
             // Publish the HTML report using HTML Publisher
+            def workspaceDir = sh(returnStdout: true, script: 'pwd').trim()
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: env.WORKSPACE + '/newman',  
+                reportDir: workspaceDir + '/newman', 
                 reportFiles: 'collection-1020-*.html', 
-                keepAll: true,             // Keep past reports
-                allowMissing: false,       // Fail the build if report is missing
+                keepAll: true, 
+                allowMissing: false, 
                 alwaysLinkToLastBuild: true
             ])
         }
