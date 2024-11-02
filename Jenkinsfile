@@ -114,8 +114,8 @@ pipeline {
             // Publish the HTML report using HTML Publisher
             publishHTML(target: [
                 reportName: 'Newman Report', 
-                reportDir: '/var/jenkins_home/workspace/netApiPost-ops@2/newman', 
-                reportFiles: 'collection-1020-*.html', // HTML file pattern
+                reportDir: '${WORKSPACE}/newman', 
+                reportFiles: 'collection-1020-*.html', 
                 keepAll: true,             // Keep past reports
                 allowMissing: false,       // Fail the build if report is missing
                 alwaysLinkToLastBuild: true
